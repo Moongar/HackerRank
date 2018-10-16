@@ -9,22 +9,24 @@ public class JavaStack {
     public static void main(String []argh)
     {
         Scanner sc = new Scanner(System.in);
+        Deque<Character> myStack=new ArrayDeque<>();
         while (sc.hasNext()) {
-            Deque<Character> myStack=new ArrayDeque<>();
             String input=sc.next();
             if(input.length()==0) System.out.println("true");
             else{
-                myStack.push(input.charAt(0));
-                for(int i=1;i<input.length();i++){
-                    char c=input.charAt(i);
-                    if((c==')' && myStack.peek()=='(') || (c=='}' && myStack.peek()=='{') || (c==']' && myStack.peek()=='[')){
-                        myStack.pop();
-                    } else {
+                for(char c:input.toCharArray()){
+                    if(myStack.isEmpty()){
                         myStack.push(c);
+                    } else {
+                        if((c==')' && myStack.peek()=='(') || (c=='}' && myStack.peek()=='{') || (c==']' && myStack.peek()=='[')){
+                            myStack.pop();
+                        } else {
+                            myStack.push(c);
+                        }
                     }
                 }
-                if(myStack.size()==0) System.out.println("true");
-                else System.out.println("false");
+                System.out.println(myStack.isEmpty());
+                myStack.clear();
             }
 
         }
