@@ -138,4 +138,17 @@ public class LinkedListTutorials {
             for(int i=A.size()-1;i>=0;i--) System.out.println(A.get(i));
         }
     }
+
+    static boolean compareLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        if(head1.data!=head2.data) return false;
+        SinglyLinkedListNode node1=head1;
+        SinglyLinkedListNode node2=head2;
+        while(node1.next!=null && node2.next!=null){
+            node1=node1.next;
+            node2=node2.next;
+            if(node1.data!=node2.data) return false;
+        }
+        if(node2.next!=null || node1.next!=null) return false;
+        return true;
+    }
 }
