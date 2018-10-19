@@ -38,7 +38,7 @@ public class LinkedListTutorials {
         list.insertNode(25);
         list.insertNode(46);
 
-        printLinkedList(insertNodeAtPosition(list.head,10, 2));
+        printLinkedList(deleteNode(list.head, 2));
 
     }
     static void printLinkedList(SinglyLinkedListNode head) {
@@ -87,6 +87,22 @@ public class LinkedListTutorials {
                 newNode.next=node.next;
                 node.next=newNode;
             }
+        }
+        return head;
+    }
+
+    static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
+        if(position==0){
+            if(head.next==null) return null;
+            else{
+                head=head.next;
+            }
+        } else {
+            SinglyLinkedListNode node=head;
+            for(int i=1;i<position;i++){
+                node=node.next;
+            }
+            node.next=node.next.next;
         }
         return head;
     }
