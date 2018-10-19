@@ -38,8 +38,7 @@ public class LinkedListTutorials {
         list.insertNode(25);
         list.insertNode(46);
 
-        insertNodeAtTail(list.head,10);
-        printLinkedList(list.head);
+        printLinkedList(insertNodeAtTail(list.head,10));
 
     }
     static void printLinkedList(SinglyLinkedListNode head) {
