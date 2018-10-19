@@ -39,10 +39,28 @@ public class LinkedListTutorials {
         list.insertNode(12);
         list.insertNode(25);
         list.insertNode(46);
+        list.insertNode(55);
 
-        reversePrint(list.head);
+        printLinkedList(reverse(list.head));
 
     }
+    static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
+        if(head==null) return null;
+        else if (head.next==null) return head;
+        else{
+            SinglyLinkedListNode prevNode=null;
+            SinglyLinkedListNode currentNode=head;
+            SinglyLinkedListNode nextNode=null;
+            while (currentNode != null) {
+                nextNode = currentNode.next;
+                currentNode.next = prevNode;
+                prevNode = currentNode;
+                currentNode = nextNode;
+            }
+            return prevNode;
+        }
+    }
+
     static void printLinkedList(SinglyLinkedListNode head) {
         while ( head != null) {
             System.out.println(head.data);
