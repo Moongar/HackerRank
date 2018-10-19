@@ -1,5 +1,7 @@
 package com.moses;
 
+import java.util.ArrayList;
+
 public class LinkedListTutorials {
     static class SinglyLinkedListNode {
         public int data;
@@ -38,7 +40,7 @@ public class LinkedListTutorials {
         list.insertNode(25);
         list.insertNode(46);
 
-        printLinkedList(deleteNode(list.head, 2));
+        reversePrint(list.head);
 
     }
     static void printLinkedList(SinglyLinkedListNode head) {
@@ -105,5 +107,17 @@ public class LinkedListTutorials {
             node.next=node.next.next;
         }
         return head;
+    }
+
+    static void reversePrint(SinglyLinkedListNode head) {
+        if(head!=null){
+            ArrayList<Integer> A=new ArrayList<>();
+            A.add(head.data);
+            while(head.next!=null){
+                head=head.next;
+                A.add(head.data);
+            }
+            for(int i=A.size()-1;i>=0;i--) System.out.println(A.get(i));
+        }
     }
 }

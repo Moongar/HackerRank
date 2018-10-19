@@ -6,5 +6,6 @@ public class Main {
         //TODO Duplicate Words
         //TODO BigSorting
         //TODO Clique
+        //TODO Queen's Attack
     }
 }
